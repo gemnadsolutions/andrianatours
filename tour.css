@@ -3,3 +3,46 @@
 @media(max-width:700px){.tour-hero{min-height:690px}.tour-hero-copy{left:22px;right:22px;bottom:18%}.tour-hero-copy h1{font-size:56px;letter-spacing:-2px}.tour-hero-copy>p:last-child{font-size:13px}.tour-duration{left:22px;right:auto;bottom:5%;padding-left:16px}.tour-duration strong{font-size:48px}.tour-intro{padding:70px 22px}.itinerary{padding:0 22px 70px}.itinerary-heading{grid-template-columns:1fr;gap:20px}.itinerary-heading>p:last-child{justify-self:start}.itinerary-day{grid-template-columns:1fr;gap:20px;padding:42px 0}.day-copy ul{grid-template-columns:1fr}.day-photos{grid-template-columns:1fr 1fr}.day-photos figure{height:175px}.tour-included{grid-template-columns:1fr;gap:35px;padding:65px 22px}.places{padding:70px 22px}.place-grid{grid-template-columns:1fr 1fr;gap:10px}.place-card img{height:160px}.place-card figcaption{font-size:15px;padding:13px}.tour-cta{padding:75px 22px}}
 @media(max-width:420px){.day-photos,.place-grid{grid-template-columns:1fr}.day-photos figure,.place-card img{height:220px}}
 @media(prefers-reduced-motion:reduce){.tour-hero>img{animation:none}.day-photos img,.place-card img{transition:none}}
+
+/* Editorial itinerary layout inspired by a modern printed travel journal. */
+.tour-page{background:#eef1ec}
+.tour-page header{background:linear-gradient(180deg,rgba(6,25,22,.72),rgba(6,25,22,0));border:0}
+.tour-hero{height:min(920px,100svh);min-height:730px;background:#dfe6e1;color:var(--ink);padding:106px 5% 44px;isolation:isolate}
+.tour-hero:before{content:'ANDRIANA · ITINERARY';position:absolute;z-index:3;left:1.55%;top:50%;writing-mode:vertical-rl;transform:translateY(-42%) rotate(180deg);font-size:10px;letter-spacing:2.4px;color:#49655a}
+.tour-hero-gallery{position:absolute;z-index:0;inset:106px 5% 44px;display:grid;grid-template-columns:1.15fr .85fr;grid-template-rows:1fr 1fr;gap:12px;overflow:hidden}
+.tour-hero-gallery img{width:100%;height:100%;object-fit:cover;min-height:0;animation:tourReveal 1.25s cubic-bezier(.2,.7,.2,1) both}
+.tour-hero-gallery img:first-child{grid-row:1/3}
+.tour-hero-gallery img:nth-child(2){animation-delay:.08s}.tour-hero-gallery img:nth-child(3){animation-delay:.16s}
+.tour-hero-shade{display:none}
+.tour-hero-copy{z-index:2;left:auto;right:7%;bottom:9%;width:min(560px,43%);max-width:none;padding:42px 46px;background:rgba(251,252,249,.95);box-shadow:0 24px 70px rgba(8,37,30,.2);backdrop-filter:blur(12px)}
+.tour-hero-copy .eyebrow{color:#94723e}.tour-hero-copy h1{font-size:clamp(52px,5.8vw,88px);letter-spacing:-2.5px;margin:14px 0 22px}.tour-hero-copy>p:last-child{font-size:14px;color:#52655b;line-height:1.7}
+.tour-duration{z-index:3;right:5.8%;top:126px;bottom:auto;padding:11px 17px;border:0;background:#153f35;color:white;box-shadow:0 10px 30px rgba(4,28,23,.18)}
+.tour-duration strong{font-size:46px}.tour-duration span{font-size:9px}
+.tour-intro{padding:100px 6% 88px;align-items:center;gap:110px}
+.tour-intro>div{padding-left:28px;border-left:1px solid #b8c6bc}.tour-intro>p{font-size:clamp(23px,2.2vw,32px);max-width:650px}
+.tour-overview{max-width:1320px;margin:0 auto 120px;padding:0 5%}
+.overview-heading{display:grid;grid-template-columns:.8fr 1fr 1fr;align-items:end;gap:34px;margin-bottom:34px;padding-bottom:28px;border-bottom:1px solid #cfd8d0}
+.overview-heading h2{font-size:clamp(40px,4vw,58px)}.overview-heading>p:last-child{color:var(--muted);max-width:380px;justify-self:end}
+.overview-grid{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(170px,1fr);gap:12px;overflow-x:auto;padding:0 0 14px;scroll-snap-type:x mandatory;scrollbar-color:#9cac9e transparent}
+.overview-card{position:relative;height:240px;overflow:hidden;background:#173c32;color:white;scroll-snap-align:start}
+.overview-card:after{content:'';position:absolute;inset:0;background:linear-gradient(transparent 35%,rgba(4,24,20,.9))}
+.overview-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}.overview-card:hover img{transform:scale(1.045)}
+.overview-card span{position:absolute;z-index:1;left:16px;right:16px;bottom:15px}.overview-card small{display:block;margin-bottom:6px;color:#e6c996;font-size:10px;letter-spacing:1.5px}.overview-card strong{display:block;font:18px/1.25 var(--serif)}
+.itinerary{max-width:none;padding:0 0 120px}.itinerary-heading{max-width:1160px;margin:0 auto 10px;padding:0 5% 48px}
+.itinerary-day{max-width:1160px;margin:auto;padding:82px 5%;display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);grid-template-rows:auto 1fr;grid-template-areas:'number photos' 'copy photos';gap:24px 66px;border:0;align-items:start}
+.itinerary-day:nth-of-type(even){max-width:none;padding-left:max(5%,calc((100% - 1160px)/2 + 5%));padding-right:max(5%,calc((100% - 1160px)/2 + 5%));background:#f8f8f4;grid-template-columns:minmax(0,1.18fr) minmax(0,.82fr);grid-template-areas:'photos number' 'photos copy'}
+.day-number{grid-area:number;padding-top:8px}.day-number span{display:inline-flex;align-items:center;gap:12px;margin-bottom:18px;font-size:12px}.day-number span:after{content:'';width:46px;height:1px;background:#c5a16b}.day-number strong{display:block;font-size:clamp(31px,3vw,45px);line-height:1.12}
+.day-copy{grid-area:copy}.day-copy>p{font-size:17px;line-height:1.8}.day-copy ul{grid-template-columns:1fr;gap:10px;margin-top:28px;font-size:15px}.day-copy li{padding-bottom:9px;border-bottom:1px solid #d9dfd8}.day-copy li:before{content:'•';font-size:18px}
+.day-photos{grid-area:photos;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:10px;min-height:520px}
+.day-photos figure{height:auto;min-height:0;border-radius:0}.day-photos figure:first-child{grid-row:1/3}.day-photos figure:only-child{grid-column:1/3;grid-row:1/3}.day-photos figure:nth-child(4){display:none}.day-photos figcaption{font-size:12px;padding:45px 18px 16px}
+.tour-included{padding-top:100px;padding-bottom:100px}.tour-included li{font-size:16px}
+.places{padding-top:120px;padding-bottom:120px}.places-heading{max-width:1100px;margin:0 auto 48px}.place-grid{max-width:1320px;margin:auto;grid-template-columns:repeat(12,1fr);grid-auto-rows:360px;gap:12px}.place-card{grid-column:span 4;position:relative;border:0}.place-card:nth-child(5n+1),.place-card:nth-child(5n+4){grid-column:span 8}.place-card img{height:100%}.place-card figcaption{position:absolute;left:0;right:0;bottom:0;color:white;padding:60px 22px 20px;background:linear-gradient(transparent,rgba(4,28,23,.88))}
+.tour-cta{padding:110px 24px;background:#d9e6dc}
+@media(max-width:900px){.tour-hero-copy{width:min(590px,70%)}.tour-overview{padding:0 34px}.itinerary-day,.itinerary-day:nth-of-type(even){padding-left:35px;padding-right:35px;gap:30px}.place-grid{grid-auto-rows:300px}.place-card,.place-card:nth-child(5n+1),.place-card:nth-child(5n+4){grid-column:span 6}}
+@media(max-width:700px){
+ .tour-hero{height:auto;min-height:780px;padding:88px 18px 24px}.tour-hero:before{display:none}.tour-hero-gallery{inset:88px 18px auto;height:410px;grid-template-columns:1.18fr .82fr;gap:7px}.tour-hero-copy{left:30px;right:30px;bottom:24px;width:auto;padding:28px 25px}.tour-hero-copy h1{font-size:46px;line-height:1.02;margin:10px 0 16px}.tour-hero-copy>p:last-child{font-size:13px}.tour-duration{top:106px;right:28px;padding:8px 12px}.tour-duration strong{font-size:34px}
+ .tour-intro{padding:72px 22px 65px;gap:26px}.tour-intro>div{padding-left:18px}.tour-overview{margin-bottom:72px;padding:0 22px}.overview-heading{grid-template-columns:1fr;gap:11px;margin-bottom:24px}.overview-heading>p:last-child{justify-self:start}.overview-grid{grid-auto-columns:70%;gap:9px}.overview-card{height:215px}
+ .itinerary{padding-bottom:74px}.itinerary-heading{padding:0 22px 36px}.itinerary-day,.itinerary-day:nth-of-type(even){padding:52px 22px;grid-template-columns:1fr;grid-template-rows:auto;grid-template-areas:'number' 'photos' 'copy';gap:24px}.day-number strong{font-size:34px}.day-photos{min-height:0;height:390px;gap:7px}.day-copy>p{font-size:16px}.day-copy ul{font-size:14px}.tour-included{padding:70px 22px}.places{padding:76px 22px}.places-heading{display:block}.place-grid{grid-template-columns:1fr 1fr;grid-auto-rows:230px;gap:8px}.place-card,.place-card:nth-child(5n+1),.place-card:nth-child(5n+4){grid-column:span 1}.place-card:nth-child(5n+1){grid-column:1/3}.place-card figcaption{font-size:16px;padding:45px 14px 14px}.tour-cta{padding:78px 22px}
+}
+@media(max-width:420px){.tour-hero-gallery{height:380px}.tour-hero{min-height:740px}.overview-grid{grid-auto-columns:78%}.day-photos{grid-template-columns:1fr 1fr;height:360px}.day-photos figure,.place-card img{height:auto}.place-grid{grid-template-columns:1fr;grid-auto-rows:270px}.place-card,.place-card:nth-child(5n+1),.place-card:nth-child(5n+4){grid-column:1}.place-card:nth-child(5n+1){grid-column:1}}
+@media(prefers-reduced-motion:reduce){.tour-hero-gallery img{animation:none}.overview-card img{transition:none}}

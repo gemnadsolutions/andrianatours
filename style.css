@@ -57,24 +57,26 @@ body:not(.tour-page)>header{background:linear-gradient(180deg,rgba(0,0,0,.34),rg
 .whatsapp-float{position:fixed;right:24px;bottom:78px;z-index:80;display:flex;align-items:center;gap:10px;padding:12px 18px 12px 11px;border-radius:32px;background:#25d366;color:#062d20;box-shadow:0 10px 30px #071f1b42;font-size:13px;font-weight:700;transition:transform .2s,box-shadow .2s}
 .whatsapp-float:hover{transform:translateY(-3px);box-shadow:0 14px 34px #071f1b55}.whatsapp-float span{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:white;font-size:18px}
 .mobile-tour-window{overflow:visible}
-@keyframes mobile-tour-drift{to{transform:translateX(calc(-50% - 7px))}}
+.mobile-tour-controls{display:none}
 @media(max-width:700px){
   .bottom-haze{height:205px;background:linear-gradient(180deg,transparent 0%,rgba(4,18,18,.14) 32%,rgba(4,18,18,.72) 100%)}
   .scroll-cue{font-size:11px;gap:16px;letter-spacing:1.8px}.scroll-cue span{width:38px;height:54px;font-size:20px}
   .round-arrow{width:34px;height:34px;right:24px;bottom:26px;font-size:16px}
   .culture-section{min-height:0;display:flex;flex-direction:column;padding:0}
   .culture-copy{position:relative;top:auto;left:auto;transform:none;max-width:none;padding:58px 22px 38px;background:var(--paper)}
-  .culture-copy>p:not(.eyebrow){max-width:none}.culture-image{height:390px;margin:0}.culture-image:after{display:none}.culture-image img{object-position:67% center}.culture-image span{right:18px;bottom:16px;left:18px;text-align:right}
+  .culture-copy>p:not(.eyebrow){max-width:none}.culture-image{height:390px;margin:0}.culture-image:after{display:none}.culture-image img{object-position:center center}.culture-image span{right:18px;bottom:16px;left:18px;text-align:right}
   .temple-divider{height:300px}.temple-divider img{object-position:62% center}
   .footer-social{justify-content:flex-start;overflow-x:auto;padding:22px 0}.footer-social a{min-width:145px;flex:0 0 auto}
   .whatsapp-float{right:16px;bottom:16px;width:52px;height:52px;padding:0;justify-content:center}.whatsapp-float strong{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.whatsapp-float span{width:38px;height:38px}
-  .mobile-tour-window{overflow:hidden;margin-right:-22px;padding-right:22px}
-  .tour-grid.mobile-slider{display:flex;width:max-content;gap:14px;animation:mobile-tour-drift 28s linear infinite;will-change:transform}
-  .tour-grid.mobile-slider:hover,.tour-grid.mobile-slider:focus-within{animation-play-state:paused}
+  .mobile-tour-window{overflow-x:auto;overflow-y:hidden;margin-right:-22px;padding-right:22px;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .mobile-tour-window::-webkit-scrollbar{display:none}
+  .tour-grid.mobile-slider{display:flex;width:max-content;gap:14px;animation:none!important;transform:none!important;will-change:auto}
   .tour-grid.mobile-slider .tour-card{width:calc(100vw - 44px);flex:0 0 calc(100vw - 44px)}
+  .tour-grid.mobile-slider .tour-card{scroll-snap-align:start;scroll-snap-stop:always}
   .tour-grid.mobile-slider .tour-image{height:240px}
+  .mobile-tour-controls{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}
+  .mobile-tour-controls button{width:46px;height:46px;border:1px solid #aab8ae;border-radius:50%;background:transparent;color:var(--green);font-size:21px;line-height:1}
 }
-@media(prefers-reduced-motion:reduce){.tour-grid.mobile-slider{animation:none;transform:none}.mobile-tour-window{overflow-x:auto}.tour-grid.mobile-slider [data-mobile-clone]{display:none}}
 
 /* Shared contact icons and an edge-to-edge transport gallery. */
 .social-icon{width:22px;height:22px;flex:0 0 auto;display:block}
@@ -99,12 +101,12 @@ body:not(.tour-page)>header{background:linear-gradient(180deg,rgba(0,0,0,.34),rg
 @media(max-width:700px){.hero-bottom{bottom:82px;left:6%;right:6%}.scroll-cue{gap:10px;font-size:10px;letter-spacing:1.2px}.hero-bottom>span{font-size:11px}}
 
 @media(max-width:700px){
- .mobile-canvas{position:absolute;left:50%;top:50%;width:max(100vw,calc(100svh * 941 / 1672));height:max(100svh,calc(100vw * 1672 / 941));transform:translate(-50%,-50%)}
+ .mobile-canvas{position:absolute;left:50%;top:50%;width:max(100vw,calc(100svh * 941 / 1672));height:max(100svh,calc(100vw * 1672 / 941));transform:translate(-50%,-50%);transform-origin:50% 24%;will-change:transform}
  .mobile-scene .mobile-foreground{transform-origin:0 0}
 }
 
 /* A compact, modern film reel of real traveller moments. */
-.memory-reel{margin:0;padding:26px 0 30px;background:#0c2923;color:#f6f5ef;overflow:hidden}
+.memory-reel{margin:0;padding:0;background:#0c2923;color:#f6f5ef;overflow:hidden}
 .memory-reel-head{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 6% 18px}
 .memory-reel-head .eyebrow{color:#d6b981;font-size:10px}
 .memory-reel-head p:last-child{margin-top:3px;font:italic 20px/1.25 var(--serif);color:#dce6df}
@@ -118,5 +120,6 @@ body:not(.tour-page)>header{background:linear-gradient(180deg,rgba(0,0,0,.34),rg
 .memory-strip figure.wide{width:290px;flex-basis:290px}
 .memory-strip img{width:100%;height:100%;object-fit:cover;filter:saturate(.96) contrast(1.03);transition:filter .3s,transform .5s}
 .memory-strip figure:hover img{filter:saturate(1.08) contrast(1.02);transform:scale(1.025)}
-@media(max-width:700px){.memory-reel{padding:20px 0 24px}.memory-reel-head{padding:0 22px 14px}.memory-reel-head p:last-child{font-size:17px}.memory-reel .carousel-toggle{padding:7px 12px;font-size:12px}.film-window{padding:14px 0}.memory-strip figure{width:165px;height:108px;flex-basis:165px}.memory-strip figure.wide{width:225px;flex-basis:225px}.memory-strip{gap:7px;padding-right:7px}.memory-reel .carousel-track{animation-duration:38s}}
+@media(max-width:700px){.memory-reel{padding:0}.film-window{padding:14px 0}.memory-strip figure{width:165px;height:108px;flex-basis:165px}.memory-strip figure.wide{width:225px;flex-basis:225px}.memory-strip{gap:7px;padding-right:7px}.memory-reel .carousel-track{animation-duration:38s}}
 @media(prefers-reduced-motion:reduce){.memory-reel .carousel-track{animation:none}.memory-reel .carousel-group[aria-hidden]{display:none!important}}
+.sky-exit{clip-path:circle(0% at 50% 100%)}
